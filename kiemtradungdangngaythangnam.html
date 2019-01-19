@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Date(str) {
+        pattern = /\d\d-\d\d-\d\d\d\d/;
+        if(pattern.test(str)){
+            return true;
+        }
+        return false
+    };
+    var date =  "01-02-1997"
+    console.log(Date(date))
+</script>
+</body>
+</html>

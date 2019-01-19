@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function dispArray(arr) {
+        for (var i = 0; i < 100; i++) {
+            document.write(arr[i] + "  ")
+            if (i % 10 === 9) {
+                document.write("<br>")
+            }
+        }
+        if (i % 10 !== 0) {
+            document.write("<br>")
+        }
+    }
+    var binarySearch = function (array, value) {
+        var min = 0;
+        var max = array.length - 1;
+        while (min <= max) {
+            var mid = Math.floor((min + max) / 2);
+            if (array[mid] === value) {
+                return mid;
+            } else if (array[mid] < value) {
+                min = mid + 1;
+            } else {
+                max = mid - 1;
+            }
+        }
+        return -1;
+    }
+    function count(arr, data) {
+        var count = 0;
+        var position = binarySearch(arr, data);
+        if (position > -1) {
+            count++;
+            for (var i = position - 1; i > 0; i--) {
+                if (arr[i] == data) {
+                    cout++;
+                } else {
+                    break;
+                }
+            }
+            for (var i = position + 1; i < arr.length; ++i) {
+                if (arr[i] == data) {
+                    count++;
+                } else {
+                    break;
+                }
+            }
+        }
+        return count;
+    }
+
+    var nums = [];
+    for (var i = 0; i < 100; i++) {
+        nums[i] = Math.floor(Math.random() * 101);
+    }
+    function insertionsort(arr) {
+        let len = arr.length,
+            value,
+            i,
+            j;
+        for (i = 1; i < len; i++) {
+            value = arr[i]
+            j = i - 1
+            while (j >= 0 && arr[j] > value) {
+                arr[j + 1] = arr[j]
+                j--
+            }
+            arr[j + 1] = value
+        }
+        return arr;
+    }
+    insertionsort(nums);
+    dispArray(nums);
+    document.write("<br/>");
+    var val = parseInt(prompt("Enter a value to count: "));
+    var retVal = count(nums, val);
+    document.write("Found " + retVal + " occurrences of " + val + ".");
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var num = parseInt(prompt("Nhap vao so nguyen to"));
+    var count = 0;
+    var N =2;
+     while (count<num){
+         if(kiemtra(N)){
+             document.write("So nguyen to la:" +N+"<br/>");
+             count++;
+         }
+         N++;
+     }
+     function kiemtra(m) {
+         var check = true
+         for(var i=2;i<m;i++){
+             if(m%i==0){
+                 check = false;
+             }
+             return check;
+         }
+     }
+</script>
+</body>
+</html>
